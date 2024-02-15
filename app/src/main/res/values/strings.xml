@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Symptoms WearOS</string>
+
+    <string name="inform_data_collection">
+        Se están recogiendo tus datos de ritmo cardíaco durante la exposición.
+    </string>
+
+    <string name="inform_start_exposure">
+        Empieza una exposición desde la app móvil para empezar a recoger datos de ritmo cardíaco.
+    </string>
+
+    <string name="select_collection_destination_txt">
+        Selecciona dónde quieres recibir los datos recogidos:
+    </string>
+    <string name="local_radio">Reloj</string>
+    <string name="remote_radio">Móvil</string>
+
+
+    <string name="info_command_single_txt">Pulsa START/STOP para iniciar la recolección de datos para el sensor seleccionado</string>
+    <string name="start_btn">Start</string>
+    <string name="stop_btn">Stop</string>
+    <string name="info_free_txt">
+        También puedes enviar y recibir mensajes al/del móvil. Pulsa \"TEST ENVÍO\" para enviar un mensaje al móvil
+    </string>
+    <string name="send_free_btn">TEST ENVÍO</string>
+
+    <string name="inform_permissions">Vamos a solicitar permisos</string>
+</resources>
