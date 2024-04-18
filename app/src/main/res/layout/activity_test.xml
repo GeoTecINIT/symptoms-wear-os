@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:deviceIds="wear">
+    <!--check this-->
+
+    <requestFocus />
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginBottom="10dp"
+            android:text="@string/app_name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/inform_start_exposure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="@string/inform_start_exposure" />
+
+        <TextView
+            android:id="@+id/inform_data_collection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:visibility="gone"
+            android:text="@string/inform_data_collection" />
+
+        <ImageView
+            android:id="@+id/heart_icon"
+            android:layout_width="108dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:src="@drawable/icc_cc_heartbeat"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressTint="#2DC38A"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="25" />
+    </LinearLayout>
+</ScrollView>

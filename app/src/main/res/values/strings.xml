@@ -6,7 +6,7 @@
     </string>
 
     <string name="inform_start_exposure">
-        Empieza una exposición desde la app móvil para empezar a recoger datos de ritmo cardíaco.
+        Debes iniciar una exposición en la app móvil para empezar a recoger datos de ritmo cardíaco.
     </string>
 
     <string name="select_collection_destination_txt">
@@ -25,4 +25,5 @@
     <string name="send_free_btn">TEST ENVÍO</string>
 
     <string name="inform_permissions">Vamos a solicitar permisos</string>
+    <string name="title_activity_test">activity_test</string>
 </resources>

@@ -15,29 +15,33 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
-
-        <!--
-               TODO: Check this value
-        -->
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
         <activity
             android:name=".MainActivity"
-            android:label="WearOS Sensors"
-            android:exported="true">
+            android:exported="true"
+            android:label="WearOS Sensors">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RequestPermissionsActivity"
+        <activity
+            android:name=".RequestPermissionsActivity"
             android:excludeFromRecents="true"
             android:taskAffinity="" />
+        <activity
+            android:name=".TestActivity"
+            android:exported="false"
+            android:label="@string/title_activity_test"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
