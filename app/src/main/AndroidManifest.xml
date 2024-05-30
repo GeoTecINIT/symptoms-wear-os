@@ -37,11 +37,6 @@
             android:name=".RequestPermissionsActivity"
             android:excludeFromRecents="true"
             android:taskAffinity="" />
-        <activity
-            android:name=".TestActivity"
-            android:exported="false"
-            android:label="@string/title_activity_test"
-            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

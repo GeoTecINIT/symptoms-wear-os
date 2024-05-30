@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Symptoms WearOS</string>
+    <string name="app_name">Symptoms</string>
 
     <string name="inform_data_collection">
         Se están recogiendo tus datos de ritmo cardíaco durante la exposición.

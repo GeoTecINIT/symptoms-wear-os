@@ -43,10 +43,10 @@ public class RequestPermissionsActivity extends FragmentActivity {
     private void updateUI(boolean success) {
         progressBar.setVisibility(View.GONE);
         if (success) {
-            descriptionText.setText("¡Gracias! :D");
+            descriptionText.setText("¡Gracias! 👌");
             checkIcon.setVisibility(View.VISIBLE);
         } else {
-            descriptionText.setText("Permisos denegados :(");
+            descriptionText.setText("Permisos denegados ☹️");
             failIcon.setVisibility(View.VISIBLE);
         }
     }
