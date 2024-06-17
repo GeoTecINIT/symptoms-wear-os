@@ -23,6 +23,7 @@
             android:layout_marginBottom="10dp"
             android:text="@string/app_name"
             android:textSize="18sp"
+            android:fontFamily="@font/roboto_medium"
             android:textStyle="bold" />
 
         <TextView
@@ -30,7 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
-            android:text="@string/inform_start_exposure" />
+            android:text="@string/inform_start_exposure"
+            android:fontFamily="@font/roboto_regular" />
 
         <TextView
             android:id="@+id/inform_data_collection"
@@ -38,7 +40,8 @@
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
             android:visibility="gone"
-            android:text="@string/inform_data_collection" />
+            android:text="@string/inform_data_collection"
+            android:fontFamily="@font/roboto_regular" />
 
         <ImageView
             android:id="@+id/heart_icon"

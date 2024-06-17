@@ -29,6 +29,7 @@ public class RequestPermissionsActivity extends FragmentActivity {
         checkIcon = findViewById(R.id.checkIcon);
         failIcon = findViewById(R.id.failIcon);
 
+
         handler = new PermissionsRequestHandler(this);
         handler.onPermissionsResult(this::updateUI);
         handler.handleRequest();

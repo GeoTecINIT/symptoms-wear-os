@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
         // activate sensor
         WearSensor heartRateSensor = WearSensor.HEART_RATE;
         setupAnimation();
-        command.executeStart(heartRateSensor);
+        this.command.executeStart(heartRateSensor);
         runOnUiThread(() -> {
             switchUI(true);
         });
@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
         ImageView imageView = findViewById(R.id.heart_icon);
         imageView.clearAnimation();
 
-        command.executeStop(heartRateSensor);
+        this.command.executeStop(heartRateSensor);
 
         runOnUiThread(() -> {
             switchUI(false);
