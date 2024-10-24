@@ -29,6 +29,11 @@ public class MainActivity extends Activity {
     private PlainMessageClient messageClient;
     private ProgressBar progressBar;
     private String message;
+    private enum UIState {
+        COLLECTION,
+        WAITING,
+        PERMISSIONS_PENDING,
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +46,26 @@ public class MainActivity extends Activity {
 
         messageClient = new PlainMessageClient(this);
         messageClient.registerListener(message -> {
-            Log.d("AAAAA", message.toString()); // ReceivedMessage{senderNodeId='adf339e4', plainMessage=PlainMessage{message='Exposure started', inResponseTo=null}, requiresResponse=false}
             this.message = message.getPlainMessage().getMessage().toString(); // Exposure started
-            Log.d("AAAAA", this.message.toString());
-            if (this.message.equals("Exposure started")) {
-                this.startCollection();
-            }
-            if (this.message.equals("Exposure finished")) {
-                this.stopCollection();
+            Log.d("Received message", this.message.toString()); // ReceivedMessage{senderNodeId='adf339e4', plainMessage=PlainMessage{message='Exposure started', inResponseTo=null}, requiresResponse=false}
+            switch (this.message) {
+                case "Permissions granted":
+                    runOnUiThread(() -> {
+                        switchUI(UIState.WAITING);
+                    });
+                    break;
+                case "Permissions denied":
+                    runOnUiThread(() -> {
+                        switchUI(UIState.PERMISSIONS_PENDING);
+                    });
+                    break;
+                case "Exposure started":
+                    this.startCollection();
+                    break;
+
+                case "Exposure finished":
+                    this.stopCollection();
+                    break;
             }
         });
 
@@ -78,7 +95,7 @@ public class MainActivity extends Activity {
         setupAnimation();
         this.command.executeStart(heartRateSensor);
         runOnUiThread(() -> {
-            switchUI(true);
+            switchUI(UIState.COLLECTION);
         });
     }
 
@@ -91,7 +108,7 @@ public class MainActivity extends Activity {
         this.command.executeStop(heartRateSensor);
 
         runOnUiThread(() -> {
-            switchUI(false);
+            switchUI(UIState.WAITING);
         });
     }
 
@@ -116,18 +133,29 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void switchUI(boolean showCollectionUI) {
-        if (showCollectionUI) {
-            findViewById(R.id.inform_start_exposure).setVisibility(View.GONE);
-            findViewById(R.id.inform_data_collection).setVisibility(View.VISIBLE);
-            findViewById(R.id.heart_icon).setVisibility(View.VISIBLE);
-            // findViewById(R.id.progress_bar).setVisibility(View.VISIBLE);
-        }
-        else {
-            findViewById(R.id.inform_start_exposure).setVisibility(View.VISIBLE);
-            findViewById(R.id.inform_data_collection).setVisibility(View.GONE);
-            findViewById(R.id.heart_icon).setVisibility(View.GONE);
-            // findViewById(R.id.progress_bar).setVisibility(View.GONE);
+    public void switchUI(UIState state) {
+        switch (state) {
+            case PERMISSIONS_PENDING:
+                findViewById(R.id.inform_permissions_pending).setVisibility(View.VISIBLE);
+                findViewById(R.id.inform_start_exposure).setVisibility(View.GONE);
+                findViewById(R.id.inform_data_collection).setVisibility(View.GONE);
+                findViewById(R.id.heart_icon).setVisibility(View.GONE);
+                // findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                break;
+            case WAITING:
+                findViewById(R.id.inform_permissions_pending).setVisibility(View.GONE);
+                findViewById(R.id.inform_start_exposure).setVisibility(View.VISIBLE);
+                findViewById(R.id.inform_data_collection).setVisibility(View.GONE);
+                findViewById(R.id.heart_icon).setVisibility(View.GONE);
+                // findViewById(R.id.progress_bar).setVisibility(View.GONE);
+                break;
+            case COLLECTION:
+                findViewById(R.id.inform_permissions_pending).setVisibility(View.GONE);
+                findViewById(R.id.inform_start_exposure).setVisibility(View.GONE);
+                findViewById(R.id.inform_data_collection).setVisibility(View.VISIBLE);
+                findViewById(R.id.heart_icon).setVisibility(View.VISIBLE);
+                // findViewById(R.id.progress_bar).setVisibility(View.VISIBLE);
+                break;
         }
     }
 }

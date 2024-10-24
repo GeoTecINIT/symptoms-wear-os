@@ -27,10 +27,19 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/inform_permissions_pending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:text="@string/inform_permissions_pending"
+            android:fontFamily="@font/roboto_regular" />
+
+        <TextView
             android:id="@+id/inform_start_exposure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:justificationMode="inter_word"
+            android:visibility="gone"
             android:text="@string/inform_start_exposure"
             android:fontFamily="@font/roboto_regular" />
 

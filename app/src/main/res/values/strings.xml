@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Symptoms</string>
 
+    <string name="inform_permissions_pending">
+        Debes activar la función para recogida de datos cardíacos desde el móvil: \n\n1. Ajustes > Escanear reloj\n2. Pulsar icono en la esquina superior derecha.
+    </string>
+
     <string name="inform_data_collection">
         Se están recogiendo tus datos de ritmo cardíaco durante la exposición.
     </string>
@@ -8,6 +12,7 @@
     <string name="inform_start_exposure">
         Debes iniciar una exposición en la app móvil para empezar a recoger datos de ritmo cardíaco.
     </string>
+
 
     <string name="select_collection_destination_txt">
         Selecciona dónde quieres recibir los datos recogidos:
